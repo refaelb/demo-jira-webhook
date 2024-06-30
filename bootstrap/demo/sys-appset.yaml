@@ -1,0 +1,25 @@
+fullnameOverride: system-environments
+
+envRepo:
+  repoURL: https://github.com/infinit-il/demo-kubernetes-environments.git
+  revision: master
+  files:
+  - path: "system/demo/*/components/*.yaml"
+
+  valueFiles:
+  - $environments/defaults/global.yaml
+  - $environments/system/{{ index .path.segments 1 }}/global.yaml
+  - $environments/{{ .path.path | dir }}/global.yaml
+
+gitflowRepo:
+  repoURL: https://github.com/infinit-il/demo-kubernetes-composition.git
+  targetRevision: '{{ default (index .path.segments 1) .targetRevision }}'
+
+application:
+  project: system
+  extraValues: |-
+    infinit:
+      env: "{{ index .path.segments 2 }}"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: '{{ index .path.segments 2 }}'

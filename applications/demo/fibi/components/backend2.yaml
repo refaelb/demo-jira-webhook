@@ -1,0 +1,14 @@
+chartPath: backend
+values: |
+  global:
+    demoCI:
+      fullnameOverride: "feature"
+  demo-ci:
+    containers:
+      demo:
+        env:
+          TIME                 : { value: "17:00" }
+
+    ingress:
+      enabled: true
+

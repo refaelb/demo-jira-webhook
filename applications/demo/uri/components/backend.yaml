@@ -1,0 +1,10 @@
+chartPath: demo/backend
+values: |
+  backend-app:
+    containers:
+      demo:
+        dev:
+          enabled: true
+    ingress:
+      enabled: true
+

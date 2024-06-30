@@ -1,0 +1,5 @@
+# globals:
+#   infinit:
+#     clusterPrefix: d127
+#     domain: dev.infini-t.io
+#     issuertype: route53-lets-encrypt

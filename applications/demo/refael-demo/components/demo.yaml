@@ -1,0 +1,9 @@
+chartPath: demo-ci
+values: |
+  demo-ci:
+    containers:
+      demo:
+        dev:
+          enabled: true
+    ingress:
+      enabled: true

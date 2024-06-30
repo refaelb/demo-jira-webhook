@@ -1,0 +1,14 @@
+chartPath: demo-ci
+values: |
+  demo-ci:
+    containers:
+      demo:
+        dev:
+          enabled: true
+    ingress:
+      enabled: true
+      rules:
+        public:
+          # enabled: true
+          hosts:
+            - host: '{{ print .Gen.fullName "-" .Gen.namespace "." .Gen.clusterID "-" .Gen.suffix "." .Gen.clusterDomain }}'

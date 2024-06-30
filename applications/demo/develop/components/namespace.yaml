@@ -1,0 +1,28 @@
+chartPath: namespace
+values: |
+  external-secrets:
+    definitions:
+
+      # pull-secret:
+      #   secretStoreRefName: aws
+      #   from:
+      #     - /kubernetes/dockerhub/.dockerconfigjson
+      #   template:
+      #     type: kubernetes.io/dockerconfigjson          
+  
+      docker-config:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/docker-config
+        # template:
+        #   type: kubernetes.io/dockerconfigjson          
+
+      github-creds:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/github-auth
+
+  configmaps:
+    definitions:
+      demo:
+        mykey: "my value"

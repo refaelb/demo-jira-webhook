@@ -1,0 +1,9 @@
+# This is the env globals
+global:  
+  infinit:
+    accountID: "090738130777"
+    region: "us-east-1"
+    clusterPrefix: e2e
+    clusterID: e2e
+    clusterDomain: dev.infini-t.io
+    domain: dev.infini-t.io

@@ -1,0 +1,9 @@
+# This is the env globals
+global: 
+  eden:
+    cluster: demo/global.yaml
+    env: demo/global.yaml
+  infinit:
+    clusterID: d127
+    clusterDomain: dev.infini-t.io
+    issuertype: route53-lets-encrypt

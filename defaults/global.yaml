@@ -1,0 +1,7 @@
+global:
+  eden:
+    defaults: defaults/global.yaml
+    cluster: defaults/global.yaml
+    env: defaults/global.yaml  
+  # infinit:
+    

@@ -1,0 +1,8 @@
+chartPath: event-source
+values: |
+  name: demo-ci
+  repositories:
+    owner: infinit-il
+    names:
+      - demo-ci
+  webhookUrl: # eventsource.d127-prot.dev.infini-t.io

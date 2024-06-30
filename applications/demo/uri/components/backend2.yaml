@@ -1,0 +1,14 @@
+chartPath: demo/backend
+values: |
+  global:
+    backendApp:
+      fullnameOverride: "backend2"
+  backend-app:
+    containers:
+      demo:
+        env:
+          TIME                 : { value: "%d-%m-%Y" }
+
+    ingress:
+      enabled: true
+
