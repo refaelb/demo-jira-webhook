@@ -1,0 +1,11 @@
+chartPath: system-charts/automation/pipelines
+values: |
+  argo-workflows:
+    server:
+      ingress:
+        enabled: true
+        hosts:
+          - workflows.prov127-int.dev.infini-t.io
+
+      sso:
+        redirectUrl: https://workflows.prov127-int.dev.infini-t.io/oauth2/callback

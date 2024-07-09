@@ -1,0 +1,17 @@
+chartPath: system-charts/alerting/alerts
+values: |
+  alerts:
+    prometheusRule:
+      rules:
+        PendingPods:
+          for: 10m
+      
+    alertmanagerConfig:
+      configs:
+        - name: alertmanager-config-slack
+          type: "slack"
+          dest: "prometheus_alerts"
+
+        # - name: alertmanager-config-pods-email
+        #   type: "email"
+        #   dest: 'refael058325@gmail.com'

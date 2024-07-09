@@ -1,0 +1,31 @@
+chartPath: system-charts/alerting/ingress-alerts
+values: |
+  alerts:
+    prometheusRule:
+      name: ingress-rules
+      groupName: ingress-rules
+
+      rules:
+        - alertName: NginxHighHttpRequestRate
+          expr: rate(nginx_http_requests_total[5m]) > 100
+          for: 1m
+          severity: warning
+
+        - alertName: NginxHighErrorRate
+          expr: rate(nginx_http_requests_total{status=~"5.."}[5m]) / rate(nginx_http_requests_total[5m]) > 0.01
+          for: 5m
+          severity: critical
+        
+        - alertName: NginxDroppedConnections
+          expr: increase(nginx_connections_dropped_total[10m]) > 50
+          for: 10m
+          severity: warning
+
+
+    alertmanagerConfig:
+      - name: alertmanager-config-ingress-slack
+        groupBy: ['namespace']
+        alertname: 'NginxDroppedConnections'
+        type: "slack"
+        dest: "prometheus_alert"
+        

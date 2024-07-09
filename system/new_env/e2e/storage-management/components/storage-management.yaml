@@ -1,0 +1,12 @@
+chartPath: system-charts/storage-management
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  aws-ebs-csi-driver:
+    controller:
+      k8sTagClusterId: "e2e" 
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/ebs-csi-e2e"

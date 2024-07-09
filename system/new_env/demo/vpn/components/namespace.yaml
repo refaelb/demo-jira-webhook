@@ -1,0 +1,15 @@
+chartPath: system-charts/namespace
+values: |
+  # external-secrets:
+  #   definitions:
+  #     github-oauth:
+  #       secretStoreRefName: aws
+  #       from:
+  #         - /kubernetes/sso/github-oauth
+
+  # configmaps:
+  #   definitions:
+  #     sso:
+  #       OAUTH_HOSTNAME: "oauth.d127-pub.dev.infini-t.io"
+  #       OIDC_HOSTNAME:  "oidc.d127-pub.dev.infini-t.io"
+  #       GITHUB_ORG: infinit-il

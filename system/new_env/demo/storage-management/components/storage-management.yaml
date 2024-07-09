@@ -1,0 +1,8 @@
+chartPath: system-charts/storage-management
+values: |
+  aws-ebs-csi-driver:
+    controller:
+      k8sTagClusterId: "demo" 
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/ebs-csi-demo"

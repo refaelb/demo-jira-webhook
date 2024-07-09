@@ -1,0 +1,7 @@
+chartPath: system-charts/namespace
+values: |
+  # external-secrets:
+  #   definitions:
+
+  # configmaps:
+  #   definitions:

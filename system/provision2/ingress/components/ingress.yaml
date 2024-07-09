@@ -1,0 +1,57 @@
+chartPath: system-charts/ingress
+values: |
+  private-nginx:
+    controller:
+      config:
+        global-auth-signin: https://oauth.prov2-pub.dev.infini-t.io/oauth2/start?rd=$scheme://$http_host$request_uri
+        # global-auth-signin: https://oauth.prov2-pub.dev.infini-t.io/oauth2/start?rd=$$scheme://$$http_host$$request_uri
+        global-auth-url: https://oauth.prov2-pub.dev.infini-t.io/oauth2/auth  
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: internal.prov2.dev.infini-t.io
+
+
+  public-nginx:
+    controller:
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: public.prov2.dev.infini-t.io
+
+
+  protected-nginx:
+    controller:
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: protected.prov2.dev.infini-t.io
+
+
+  forecastle:
+    forecastle:
+      ingress:
+        hosts:
+        - host: ingress-dashboard.prov2-int.dev.infini-t.io
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+
+  dex:
+    ingress:
+      enabled: true
+      hosts:
+        - host: oidc.prov2-pub.dev.infini-t.io
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+    config:
+      issuer: https://oidc.prov2-pub.dev.infini-t.io
+
+
+  oauth2-proxy:
+    extraArgs: 
+      whitelist-domain: ".dev.infini-t.io"
+      cookie-domain: ".dev.infini-t.io"
+
+    ingress:
+      enabled: true
+      hosts:
+        - oauth.prov2-pub.dev.infini-t.io

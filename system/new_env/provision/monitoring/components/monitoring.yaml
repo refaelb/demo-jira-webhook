@@ -1,0 +1,18 @@
+chartPath: system-charts/monitoring
+values: |
+  kube-prometheus-stack:
+    alertmanager:
+      ingress:
+        enabled: true
+        hosts:
+        - alertmanager.prov127-int.dev.infini-t.io
+    grafana:
+      ingress:
+        enabled: true
+        hosts:
+        - grafana-system.prov127-int.dev.infini-t.io
+    prometheus:
+      ingress:
+        enabled: true
+        hosts:
+        - prometheus.prov127-int.dev.infini-t.io

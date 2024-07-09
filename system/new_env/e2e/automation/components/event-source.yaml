@@ -1,0 +1,18 @@
+chartPath: system-charts/eventsources/github
+values: |
+  # name: demo-ci
+  # repositories:
+  #   owner: infinit-il
+  #   names:
+  #     - demo-ci
+  # webhookUrl: # eventsource.e2e-prot.dev.infini-t.io
+  organization: infinit-il
+  
+  ingress:
+    enabled: true
+    hosts:
+      - host: eventsource.e2e-prot.dev.infini-t.io
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+  

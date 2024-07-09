@@ -1,0 +1,20 @@
+chartPath: system-charts/gitops
+values: |
+  argo-cd:
+    server:
+      ingress:
+        enabled: true
+        hosts:
+          - argocd.d127-int.dev.infini-t.io
+
+    applicationSet:
+      webhook:
+        ingress:
+          enabled: true
+          hosts:
+            - argocd-appset.d127-prot.dev.infini-t.io
+
+  webhook:
+    ingress:
+      enabled: true
+      host: argocd.d127-prot.dev.infini-t.io

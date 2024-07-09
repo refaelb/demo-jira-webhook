@@ -1,0 +1,8 @@
+chartPath: system-charts/lb-controller
+values: |
+  aws-load-balancer-controller:
+    clusterName: demo
+    serviceAccount: 
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/lb-controller-demo
+

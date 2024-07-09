@@ -1,0 +1,6 @@
+chartPath: system-charts/automation/external-dns
+values: |
+  external-dns:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/external-dns-demo"

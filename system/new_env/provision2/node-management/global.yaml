@@ -1,0 +1,6 @@
+global:
+  infinit: 
+    ackNamespace: aws-controllers
+    clusterName: provision2
+    accountID: "090738130777"
+    region: us-east-1

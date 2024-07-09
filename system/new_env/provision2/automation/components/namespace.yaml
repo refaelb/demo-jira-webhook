@@ -1,0 +1,12 @@
+chartPath: system-charts/namespace
+values: |
+  external-secrets:
+    definitions:
+      github-creds:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/github-auth
+      docker-config:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/docker-config

@@ -1,0 +1,36 @@
+chartPath: system-charts/aws-controllers
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  rds:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-rds-e2e
+  ecr:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-ecr-e2e
+
+  sqs:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-sqs-e2e
+
+  eventbridge:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-eventbridge-e2e

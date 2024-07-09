@@ -1,0 +1,17 @@
+chartPath: system-charts/node-management
+values: |
+  karpenter:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/karpenter-controller-demo"
+    settings:
+      aws:
+        interruptionQueueName: "karpenter-ec2-events-demo"
+        defaultInstanceProfile: "KarpenterNodeInstanceProfile-demo"
+        clusterName: demo
+        clusterEndpoint: https://1A13E72FA9E1742C42D1121E5726A33D.gr7.us-east-1.eks.amazonaws.com
+
+  cluster-overprovisioner:
+    deployments:
+      - name: default
+        replicaCount: 0

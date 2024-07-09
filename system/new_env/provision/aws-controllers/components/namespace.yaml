@@ -1,0 +1,6 @@
+chartPath: system-charts/namespace
+
+# Protect controller namespace during cluster tear down
+preserveResources: true
+
+values: |

@@ -1,0 +1,24 @@
+chartPath: system-charts/gitops
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  argo-cd:
+    server:
+      ingress:
+        enabled: true
+        hosts:
+          - argocd.prov2-int.dev.infini-t.io
+
+    # applicationSet:
+    #   webhook:
+    #     ingress:
+    #       enabled: true
+    #       hosts:
+    #         - argocd-appset.prov2-prot.dev.infini-t.io
+
+  # webhook:
+  #   ingress:
+  #     enabled: true
+  #     host: argocd.prov2-prot.dev.infini-t.io

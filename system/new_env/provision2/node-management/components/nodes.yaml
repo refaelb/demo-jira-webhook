@@ -1,0 +1,17 @@
+chartPath: system-charts/nodes/karpenter-ec2-pools
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  defaults: 
+    class:
+      spec:
+        instanceProfile: "KarpenterNodeInstanceProfile-provision2"
+        tags:
+          "karpenter.sh/discovery": "provision2"
+  # pools:
+  #   default:
+  
+  # classes:
+  #   default:

@@ -1,0 +1,17 @@
+chartPath: system-charts/observability/logging-stack
+
+values: |
+  loki:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/logging-e2e
+    loki:
+      storage:
+        s3:
+          region: us-east-1
+          s3: s3://us-east-1/infinit-loki-test
+          
+        bucketNames:
+          chunks: infinit-loki-test
+          ruler: infinit-loki-test
+          admin: infinit-loki-test          

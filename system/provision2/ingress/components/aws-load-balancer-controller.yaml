@@ -1,0 +1,12 @@
+chartPath: system-charts/lb-controller
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  aws-load-balancer-controller:
+    clusterName: provision2
+    serviceAccount: 
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/lb-controller-provision2
+

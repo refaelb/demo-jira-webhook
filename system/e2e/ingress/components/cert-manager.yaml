@@ -1,0 +1,8 @@
+chartPath: system-charts/certificates
+preserveResources: true
+
+values: |
+  cert-manager:
+    serviceAccount: 
+      annotations:
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/cert-manager-e2e

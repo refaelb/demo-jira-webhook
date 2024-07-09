@@ -1,0 +1,39 @@
+chartPath: system-charts/monitoring
+values: |
+  kube-prometheus-stack:
+    alertmanager:
+      ingress:
+        enabled: true
+        hosts:
+        - alertmanager.d127-int.dev.infini-t.io
+      config:
+        global:
+          resolve_timeout: 11m
+          smtp_smarthost: 'smtp.gmail.com:587'
+          smtp_auth_username: 'refael058325@gmail.com' 
+          smtp_from: 'refael058325@gmail.com'
+        route:
+          receiver: "default"
+          group_by: ["namespace"]
+          routes:
+          - match:
+            receiver: "default"
+            continue: true
+        receivers:
+          - name: "default"  
+      alertmanagerSpec:
+        alertmanagerConfigMatcherStrategy:
+          type: None
+
+
+
+    grafana:
+      ingress:
+        enabled: true
+        hosts:
+        - grafana-system.d127-int.dev.infini-t.io
+    prometheus:
+      ingress:
+        enabled: true
+        hosts:
+        - prometheus.d127-int.dev.infini-t.io

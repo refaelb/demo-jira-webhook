@@ -1,0 +1,12 @@
+chartPath: system-charts/lb-controller
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  aws-load-balancer-controller:
+    clusterName: e2e
+    serviceAccount: 
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/lb-controller-e2e
+

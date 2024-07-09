@@ -1,0 +1,37 @@
+chartPath: system-charts/namespace
+
+# Protect controller namespace during cluster tear down
+preserveResources: true
+
+values: |
+  external-secrets:
+    definitions:
+      github-oauth:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/sso/github-oauth/infinit
+      oauth-app:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/sso/oauth-app
+      oauth2-proxy-app:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/sso/oauth-app
+        template:
+          data:
+            client-id: "{{ .OAUTH_APP_ID }}"
+            client-secret: "{{ .OAUTH_APP_SECRET }}"
+            cookie-secret: "{{ .OAUTH_COOKIE_SECRET }}"
+
+  configmaps:
+    definitions:
+      sso:
+        OAUTH_HOSTNAME: "oauth.prov127-pub.dev.infini-t.io"
+        OIDC_HOSTNAME:  "oidc.prov127-pub.dev.infini-t.io"
+        GITHUB_ORG: infinit-il
+
+
+  namespace:
+    labels:
+      elbv2.k8s.aws/pod-readiness-gate-inject: enabled

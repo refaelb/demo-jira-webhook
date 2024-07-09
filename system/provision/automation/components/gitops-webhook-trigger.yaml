@@ -1,0 +1,6 @@
+chartPath: system-charts/automation/gitops-webhook-trigger/github
+values: |
+  repository_trigger:
+    - infinit-il/demo-kubernetes-infrastructure
+    - infinit-il/demo-kubernetes-environments
+    - infinit-il/demo-kubernetes-composition

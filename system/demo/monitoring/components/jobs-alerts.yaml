@@ -1,0 +1,31 @@
+chartPath: system-charts/alerting/pods-alerts
+values: |
+  alerts:
+    prometheusRule:
+      name: jobs-rules
+      groupName: matrix-service-rules
+
+      rules:
+        - alertName: KubernetesJobFailed
+          expr: kube_job_status_failed > 0
+          for: 0m
+          severity: warning
+
+        - alertName: KubernetesCronjobSuspended
+          expr: kube_cronjob_spec_suspend != 0
+          for: 0m
+          severity: warning
+
+
+    alertmanagerConfig:
+      - name: alertmanager-config-pods-slack
+        groupBy: ['namespace']
+        type: "slack"
+        dest: "prometheus_alerts"
+        matchers:
+        - key: "alertname"
+          value: "KubernetesJobFailed"
+        - key: "alertname"
+          value: "KubernetesCronjobSuspended"
+
+        

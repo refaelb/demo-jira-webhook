@@ -1,0 +1,8 @@
+chartPath: system-charts/tools/vpn
+values: |
+  openvpn:
+    vpnPublicHost: vpn.dev.infini-t.io
+
+    service:
+      annotations:
+        external-dns.alpha.kubernetes.io/hostname: vpn.dev.infini-t.io

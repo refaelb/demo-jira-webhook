@@ -1,0 +1,7 @@
+# This is the env globals
+global:
+  infinit: 
+    ackNamespace: aws-controllers
+    clusterName: demo
+    accountID: "090738130777"
+    region: us-east-1

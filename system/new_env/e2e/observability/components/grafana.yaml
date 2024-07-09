@@ -1,0 +1,5 @@
+chartPath: system-charts/observability/grafana
+values: |
+  ingress:
+    enabled: true
+    host: grafana.e2e-int.dev.infini-t.io

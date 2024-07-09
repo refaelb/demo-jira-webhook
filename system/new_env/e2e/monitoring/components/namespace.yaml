@@ -1,0 +1,22 @@
+chartPath: system-charts/namespace
+values: |
+  external-secrets:
+    definitions:
+      auth-email-alert:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/alerts/auth-email-alert
+        template:
+          data:
+            password: "{{ .PASSWORD }}"
+
+      api-url-slack-alert:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/alerts/api-url-slack-alert
+        template:
+          data:
+            api_url: "{{ .API_URL }}"
+
+  # configmaps:
+  #   definitions:

@@ -1,0 +1,10 @@
+chartPath: system-charts/automation/external-dns
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  external-dns:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/external-dns-provision2"

@@ -1,0 +1,32 @@
+chartPath: system-charts/aws-controllers
+values: |
+  rds:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-rds-provision2
+  ecr:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-ecr-provision2
+
+  sqs:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-sqs-provision2
+
+  eventbridge:
+    aws:
+      region: "us-east-1"
+
+    serviceAccount:
+      annotations: 
+        eks.amazonaws.com/role-arn: arn:aws:iam::090738130777:role/ack-eventbridge-provision2

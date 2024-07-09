@@ -1,0 +1,20 @@
+chartPath: system-charts/namespace
+values: |
+  external-secrets:
+    definitions:
+      oauth2-proxy-app:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/sso/oauth-app
+        template:
+          data:
+            client-id: "{{ .OAUTH_APP_ID }}"
+            client-secret: "{{ .OAUTH_APP_SECRET }}"
+      github-creds:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/github-auth
+      docker-config:
+        secretStoreRefName: aws
+        from:
+          - /kubernetes/automation/docker-config

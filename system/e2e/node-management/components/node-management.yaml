@@ -1,0 +1,25 @@
+chartPath: system-charts/nodes/node-management
+
+# Protect controller during cluster tear down
+preserveResources: true
+
+values: |
+  karpenter:
+    serviceAccount:
+      annotations:
+        eks.amazonaws.com/role-arn: "arn:aws:iam::090738130777:role/karpenter-controller-e2e"
+    settings:
+      # aws:
+      #   interruptionQueueName: "karpenter-ec2-events-e2e"
+      #   defaultInstanceProfile: "KarpenterNodeInstanceProfile-e2e"
+      #   clusterName: e2e
+      #   clusterEndpoint: https://F7D633DD335041DA20560DDF7342FD3D.gr7.us-east-1.eks.amazonaws.com
+
+      interruptionQueue: "karpenter-ec2-events-e2e"
+      clusterName: e2e
+      clusterEndpoint: https://F7D633DD335041DA20560DDF7342FD3D.gr7.us-east-1.eks.amazonaws.com
+
+  cluster-overprovisioner:
+    deployments:
+      - name: default
+        replicaCount: 0
